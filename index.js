@@ -22,6 +22,7 @@ mongoose.connect(databaseUri, {
 .then(() => console.log(`Database connected`))
 .catch(err => console.log(`Database connection error: ${err.message}`));
 
+
 const bugsRouter = require('./routes/bugs')
 const usersRouter = require('./routes/users')
 
