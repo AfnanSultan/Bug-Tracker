@@ -10,7 +10,9 @@ app.use(express.json())
 // serve public files to client
 app.use(express.static(path.join(__dirname, 'public')));
 
-const uri = "mongodb+srv://noramgar:mypassword@cluster0-zbnhm.gcp.mongodb.net/test?retryWrites=true&w=majority"
+const uri = 'mongodb://noraga:mypassword@cluster0-shard-00-00-960za.gcp.mongodb.net:27017,cluster0-shard-00-01-960za.gcp.mongodb.net:27017,cluster0-shard-00-02-960za.gcp.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
+//const uri = 'mongodb+srv://<username>:<password>@cluster0-960za.gcp.mongodb.net/test?retryWrites=true&w=majority'
+//const uri = "mongodb+srv://noramgar:mypassword@cluster0-zbnhm.gcp.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

@@ -4,7 +4,7 @@ const path = require('path');
 
 router.route('/').get((req, res) => {
     Bug.find()
-        .then(bugs => res.json(exercises))
+        .then(bugs => res.json(bugs))
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
