@@ -2,10 +2,16 @@
 const express = require('express')
 // app is the express server
 const app = express()
+const path = require('path')
+
+// serve public files to client
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // respond with index.html when a GET request is made to the homepage
 app.get('/', (req, res) => {
-    res.sendFile('index.html')
+    //res.sendFile(path.join(__dirname + '/public/index.html'));
+    res.sendFile('/home/noramgar/Documents/repos/Bug-Tracker/public/index.html')
 });
 
 // starts a UNIX socketand listens for connections on the given path
