@@ -10,14 +10,34 @@ router.route('/').get((req, res) => {
 })
 
 // use for creating user accounts
-router.route('/add').post((req, res) => {
-    const username = req.body.username;
+router.route('/add').get((req, res) => {
+    const username = req.query.username;
+    const password = req.query.password;
+    const userType = req.query.userType;
+    const newUser = new User({username, password, userType})
 
-    const newUser = new User({username})
+    User.create(newUser, (err, newlyCreated) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(newlyCreated);
+            res.redirect('/users');
+        }
+    })
 
-    newUser.save()
-        .then(() => res.json('User added'))
-        .catch(err => res.status(400).json('Error: ' + err))
+    // newUser.save()
+    //     .then(() => res.json('User added'))
+    //     .catch(err => res.status(400).json('Error: ' + err))
+})
+
+router.route('/login').get((req, res) => {
+
+    res.send("you are logging in...");
+})
+
+router.get('/register', (req, res) => {
+    res.sendFile('createAcc.html', {root: './public'});
 })
 
 module.exports = router

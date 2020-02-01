@@ -3,36 +3,50 @@ let Bug = require('../models/bug.model')
 const path = require('path');
 
 router.route('/').get((req, res) => {
+    console.log('get /bugs');
+    console.log(req.params);
     Bug.find()
-        .then(bugs => res.json(exercises))
+        .then(bugs => res.json(bugs))
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
-router.route('/add').post((req, res) => {
-    const username = req.body.username
-    const description = req.body.description
-    const status = req.body.status
-    const date = Date.parse(req.body.date)
+// router.get('/show', (req, res) =>{
+//     res.sendFile('bugs.html', {root: './public'});
+// });
 
-    const newBug = new Bug({
-        username,
-        description,
-        status,
-        date
+router.get('/add', (req, res) => {
+    console.log("Inside /bugs/add");
+    console.log(req.query);
+    const productName = req.query.productName;
+    const bugName = req.query.bugName;
+    const dateFound = req.query.dateFound;
+    const severity = req.query.severity;
+
+    var newBug = {
+        productName,
+        bugName,
+        dateFound,
+        severity
+    }
+
+    Bug.create(newBug, (err, newlyCreated) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(newlyCreated);
+            res.redirect('/bugs');
+        }
     })
 
-    newBug.save()
-        .then(() => res.json('Bug added!'))
-        .catch(err => res.status(400).json('Error: ' + err))
+    // newBug.save()
+    //     .then(() => res.json('Bug added!'))
+    //     .catch(err => res.status(400).json('Error: ' + err))
 })
 
 router.get('/form', (req, res) => {
-    res.sendFile('createAcc.html', {root: './public'});
+    res.sendFile('report.html', {root: './public'});
 
-});
-
-router.get('/show', (req, res) =>{
-    res.sendFile('bugs.html', {root: './public'});
 });
 
 
@@ -41,9 +55,13 @@ router.get('/:userID', (req, res) =>{
     res.send('detail page ' + userID);
 });
 
-router.post('/', (req, res) =>{
-    res.send('POST /bugs');
-})
+// router.put('/', (req, res) =>{
+//     console.log("Inside the /bugs put");
+//     console.log(req.params);
+//     console.log(req.body);
+//     console.log(req.query);
+//     res.send('POST /bugs');
+// })
 
 router.put('/:id', (req, res) =>{
     id = req.params.id

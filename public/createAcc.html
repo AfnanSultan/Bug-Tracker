@@ -18,17 +18,17 @@
 		</header>
 		<article>
 			<div id="errorMessage"></div>
-			<form action="./bugs" method="post">
+			<form action="/users/add" method="PUT">
 			  
 				<div class="container">
-				  <input type="text" placeholder="Username" name="uname" required>
-                  <input type="password" placeholder="Password" name="psw" required>
+				  <input type="text" placeholder="Username" name="username" required>
+                  <input type="password" placeholder="Password" name="password" required>
                   <div class="radiobuttons">
                     <input type="radio" name="userType" value="admin"><span id="radiotext">Admin</span><br>
                     <input type="radio" name="userType" value="dev"><span id="radiotext">Developer</span><br>
                     <input type="radio" name="userType" value="user"><span id="radiotext">User</span><br>
                   </div>
-				  <button type="submit" id="createAccount" onclick="window.location.href = 'index.html';">Create Account</button>
+				  <button type="submit" id="createAccount" >Create Account</button>
 				</div>
 			  </form>
 		</article>

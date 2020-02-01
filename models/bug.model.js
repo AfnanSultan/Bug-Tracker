@@ -3,17 +3,13 @@ const Schema = mongoose.Schema
 
 const bugSchema = new Schema({
     // person who opened bug
-    username: { type: String, required: true },
+    productName: String,
     // description of bug
-    description: { type: String, required: true},
+    bugName: String,
     // open, closed, in progress
-    status: { type: String, required: true },
+    dateFound: String,
     // date bug was opened
-    date: { type: Date, required: true },
-    // developer currently fixing bug
-    fixer: { type: String },
-}, {
-    timestamps: true,
+    severity: String,
 })
 
 const Bug = mongoose.model('Bug', bugSchema)
