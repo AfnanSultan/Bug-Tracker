@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			Patrick Bauer
+			Bug Tracker Report Bug Page
+		-->
+		<meta charset="utf-8" />
+		<meta id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>SwampHacks Kickass Bug Tracker</title>
+		<link rel="stylesheet" href="./styles/reportStyles.css" />
+	</head>
+	<body background = "./images/background.jpg">
+		<header>
+			<h1>
+                Report a Bug
+			</h1>
+		</header>
+		<article>
+			<div id="errorMessage"></div>
+			<form action="./bugs.html" method="post">
+			  
+				<div class="container">
+				  <input type="text" placeholder="Product Name" name="productName" required>
+                  <input type="text" placeholder="Bug Name" name="bugName" required>
+                  <input type="text" placeholder="Date Found" name="dateFound" required>
+                  <input type="text" placeholder="Severity" name="severity" required>
+                  <input type="text" placeholder="Program Behavior" name="programBehavior" required>
+                  <input type="text" placeholder="Reproduciton Details" name="reproductionDetails" required>
+                  <input type="text" placeholder="Status" name="status" required>
+				  <button type="submit" id="submitBug" onclick="window.location.href = 'bugs.html';">Submit Bug</button>
+				</div>
+			  </form>
+		</article>
+	</body>
+</html>
