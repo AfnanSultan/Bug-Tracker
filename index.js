@@ -24,6 +24,9 @@ const usersRouter = require('./routes/users')
 
 app.use('/bugs', bugsRouter)
 app.use('/users', usersRouter)
+app.get('/', (req, res) =>{
+  res.sendFile('/public/index.html');
+})
 
 // starts a UNIX socketand listens for connections on the given path
 app.listen(8000, () => {
