@@ -6,7 +6,24 @@ router.route('/').get((req, res) => {
     console.log('get /bugs');
     console.log(req.params);
     Bug.find()
-        .then(bugs => res.json(bugs))
+        .then(bugs => {
+            //console.log(bugs)
+            let div = ''
+
+            bugs.forEach(function(obj) { 
+                //console.log(obj.productName);
+                div += '<div>'
+                div += '<p>product name: ' + obj.productName + '</p>'
+                div += '<p>bug name: ' + obj.bugName + '</p>'
+                div += '<p>date found: ' + obj.dateFound + '</p>'
+                div += '<p>severity: ' + obj.severity + '</p>'
+                div += '</div>'    
+            });
+
+            
+            res.send(div)
+            //res.json(bugs)
+        })
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
