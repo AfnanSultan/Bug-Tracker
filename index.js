@@ -3,12 +3,12 @@ const express = require('express')
 // app is the express server
 const app = express()
 
-// responds to HTTP GET requests and sends argument of send() to the server
+// respond with index.html when a GET request is made to the homepage
 app.get('/', (req, res) => {
-    res.send(index.html)
+    res.sendFile('index.html')
 });
 
-// 
+// starts a UNIX socketand listens for connections on the given path
 app.listen(8000, () => {
     console.log('Example app listening on port 8000!')
 });
