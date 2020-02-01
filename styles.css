@@ -1,0 +1,158 @@
+*
+{
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+/* reset rules */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+{
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+}
+
+body
+{
+   background-size: 1920px 1080px;
+   opacity: 0.9;
+   border-radius: 25px;
+   line-height: 1;
+   max-width: 500px;
+   margin: 0 auto;
+   font-family: Arial, Helvetica, sans-serif; 
+   -webkit-box-shadow: 10px 0px 10px rgb(0, 0, 0),
+                       0px 10px 10px rgb(0, 0, 0),
+                       -10px 0px 10px rgb(0, 0, 0);
+   -moz-box-shadow:    10px 0px 10px rgb(0, 0, 0),
+                       0px 10px 10px rgb(0, 0, 0),
+                       -10px 0px 10px rgb(0, 0, 0);
+   box-shadow:         10px 0px 10px rgb(0, 0, 0),
+                       0px 10px 10px rgb(0, 0, 0),
+                       -10px 0px 10px rgb(0, 0, 0);
+}
+
+header
+{
+   opacity: 0.9;
+   border-radius: 25px 25px 0px 0px;
+   margin-top: 25%;
+   width: 100%;
+   color: #FFFFFF;
+   background-color: #0d001a;
+   font-size: 48px;
+   text-align: center;
+   line-height: 1.5em;
+   border-bottom: 1px solid black;
+}
+
+article
+{
+   background-color: #0d001a;
+   border-radius: 0px 0px 25px 25px;
+   width: 100%;
+   text-align: Center;
+   padding: 25px;
+   overflow: auto;
+}
+
+form
+{
+   width: 100%;
+}
+
+input
+{
+   font-size: 1em;
+}
+
+section
+{
+   float: right;
+   width: 33.3333%;
+   background: white;
+   border: 3px solid #04819E;
+   margin-top: 10px;
+   display: none;
+}
+
+section div
+{
+   margin-left: 20px;
+   display: none;
+   padding: 10px;
+}
+
+section div p span
+{
+   font-weight: bold;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password]
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover
+{
+  opacity: 0.75;
+}
+
+/* Add padding to containers */
+.container
+{
+  padding: 0px;
+}
+
+/* The "Forgot password" text */
+span.psw
+{
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px)
+{
+  span.psw
+  {
+    display: block;
+     float: none;
+  }
+  .cancelbtn
+  {
+    width: 100%;
+  }
+}
