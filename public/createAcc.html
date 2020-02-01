@@ -13,7 +13,7 @@
 	<body background = "./images/background.jpg">
 		<header>
 			<h1>
-				The SwampHacks VI All-Purpose Kickass Bug Tracker You Didn't Know You Needed
+                Create An Account
 			</h1>
 		</header>
 		<article>
@@ -22,10 +22,13 @@
 			  
 				<div class="container">
 				  <input type="text" placeholder="Username" name="uname" required>
-				  <input type="password" placeholder="Password" name="psw" required>
-			  
-				  <button type="submit" id="login">Login</button>
-				  <button id="createAccount" onclick="window.location.href = 'createAcc.html';">Create Account</button>
+                  <input type="password" placeholder="Password" name="psw" required>
+                  <div class="radiobuttons">
+                    <input type="radio" name="userType" value="admin"><span id="radiotext">Admin</span><br>
+                    <input type="radio" name="userType" value="dev"><span id="radiotext">Developer</span><br>
+                    <input type="radio" name="userType" value="user"><span id="radiotext">User</span><br>
+                  </div>
+				  <button type="submit" id="createAccount" onclick="window.location.href = 'index.html';">Create Account</button>
 				</div>
 			  
 				<!---

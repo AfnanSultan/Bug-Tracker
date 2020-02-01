@@ -81,6 +81,16 @@ input[type=text], input[type=password]
   box-sizing: border-box;
 }
 
+input[type=radio]
+{
+   color: #FFFFFF;
+   margin: 10px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+   text-align: left;
+}
+
 button
 {
   color: white;
@@ -103,4 +113,16 @@ button
 button:hover
 {
   opacity: 0.75;
+}
+
+#radiotext
+{
+   color: #FFFFFF;
+   padding-left: 3%;
+}
+
+.radiobuttons
+{
+   text-align: left;
+   padding-left: 1%;
 }
