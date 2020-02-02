@@ -9,7 +9,7 @@
 	<body background = "../public/images/background.jpg">
 		<header>
 			<h1>
-                Welcome *USERNAME*!!!!!
+                Welcome, developer!
             </h1>
             <form action="report.html">
 				<div class="container">
@@ -23,16 +23,16 @@
                 <% if (bugs.hasOwnProperty(key)) { %>
                     <div>
                         <hr>
-                        <h2>Product Name: <%= bugs.productName %></h2>
+                        <h2>Bug Name: <%= bugs[key].bugName %></h2>
                         <div>
                             <hr>
-                            <h3>Bug Name: <%= bugs[key].bugName %></h3>
+                            <h3>Product Name: <%= bugs[key].productName %></h3>
                             <ul>
                                 <li>Date Found: <%= bugs[key].dateFound %></li>
                                 <li>Severity: <%= bugs[key].severity %></li>
-                                <li>Erroneous Program Behavior</li>
-                                <li>Details on how to reproduce</li>
-                                <li>Status of bug repair: </li>
+                                <li>Erroneous Program Behavior: <%= bugs[key].bugDescription %> </li>
+                                <li>Details on how to reproduce: <%= bugs[key].reproductionDetails %></li>
+                                <li>Status of bug repair: <%= bugs[key].status %></li>
                             </ul>
                         </div>
                     </div>

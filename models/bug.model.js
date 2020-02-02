@@ -10,6 +10,9 @@ const bugSchema = new Schema({
     dateFound: String,
     // date bug was opened
     severity: String,
+    status: String,
+    reproductionDetails: String,
+    bugDescription: String
 })
 
 const Bug = mongoose.model('Bug', bugSchema)
