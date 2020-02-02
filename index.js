@@ -9,6 +9,8 @@ const mongoose = require('mongoose')
 app.use(express.json())
 // serve public files to client
 app.use(express.static(path.join(__dirname, '/public')));
+app.set("view engine", "ejs");
+
 
 mongoose.Promise = global.Promise;
 
