@@ -7,22 +7,17 @@ router.route('/').get((req, res) => {
     console.log(req.params);
     Bug.find()
         .then(bugs => {
-            //console.log(bugs)
-            let div = ''
-
+            let items = []
             bugs.forEach(function(obj) { 
-                //console.log(obj.productName);
-                div += '<div>'
-                div += '<p>product name: ' + obj.productName + '</p>'
-                div += '<p>bug name: ' + obj.bugName + '</p>'
-                div += '<p>date found: ' + obj.dateFound + '</p>'
-                div += '<p>severity: ' + obj.severity + '</p>'
-                div += '</div>'    
+                //console.log(obj);
+                items.push(obj) 
             });
 
-            
-            res.send(div)
-            //res.json(bugs)
+            console.log(items)
+            res.render('../views/bugs-list', {
+                bugs: items //JSON.parse(bugs)
+            })
+
         })
         .catch(err => res.status(400).json('Error: ' + err))
 })

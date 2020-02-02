@@ -11,6 +11,10 @@ app.use(express.json())
 // serve public files to client
 app.use(express.static(path.join(__dirname, '/public')));
 
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
+
 mongoose.Promise = global.Promise;
 
 const databaseUri = "mongodb://dbUser:520520520@cluster0-shard-00-00-of6ji.mongodb.net:27017,cluster0-shard-00-01-of6ji.mongodb.net:27017,cluster0-shard-00-02-of6ji.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
