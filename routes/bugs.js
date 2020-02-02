@@ -14,7 +14,8 @@ router.route('/').get((req, res) => {
             });
 
             console.log(items)
-            res.render('../views/bugs-list', {
+            //res.render('../views/bugs-list', {
+            res.render('../public/bugs-list', {
                 bugs: items //JSON.parse(bugs)
             })
 
