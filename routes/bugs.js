@@ -25,6 +25,14 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/json').get(
+    (req, res) => {
+        Bug.find().then(bugs=>{
+            res.json(bugs)
+        })
+    }
+);
+
 // router.get('/show', (req, res) =>{
 //     res.sendFile('bugs.html', {root: './public'});
 // });

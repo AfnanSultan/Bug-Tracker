@@ -24,7 +24,7 @@
 
         let labels = ['none', 'low', 'medium', 'high'];
         let data = [0,0,0,0];
-        $.get('/bugs', {}, (bugs)=>{
+        $.get('/bugs/json', {}, (bugs)=>{
                 
                 bugs.forEach((bug)=>{
                 var index=0;
