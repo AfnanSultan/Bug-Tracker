@@ -5,6 +5,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const mongoose = require('mongoose')
+const port = process.env.PORT || 3000;
 //require('dotenv').config()
 
 app.use(express.json())
@@ -36,6 +37,6 @@ app.use('/users', usersRouter)
 
 
 // starts a UNIX socketand listens for connections on the given path
-app.listen(8000, () => {
+app.listen(port, () => {
     console.log('Example app listening on port 8000!')
 });
