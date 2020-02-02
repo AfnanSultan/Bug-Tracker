@@ -33,12 +33,18 @@ router.get('/add', (req, res) => {
     const bugName = req.query.bugName;
     const dateFound = req.query.dateFound;
     const severity = req.query.severity;
+    const status = req.query.status;
+    const reproductionDetails = req.query.reproductionDetails;
+    const bugDescription = req.query.bugDescription;
 
     var newBug = {
         productName,
         bugName,
         dateFound,
-        severity
+        severity,
+        status,
+        reproductionDetails,
+        bugDescription
     }
 
     Bug.create(newBug, (err, newlyCreated) => {
