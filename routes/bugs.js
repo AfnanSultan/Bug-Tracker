@@ -1,6 +1,9 @@
 const router = require('express').Router()
 let Bug = require('../models/bug.model')
 const path = require('path');
+// var express     = require("express")
+// var app = express();
+
 
 router.route('/').get((req, res) => {
     console.log('get /bugs');
@@ -22,6 +25,14 @@ router.route('/').get((req, res) => {
         })
         .catch(err => res.status(400).json('Error: ' + err))
 })
+
+router.route('/json').get(
+    (req, res) => {
+        Bug.find().then(bugs=>{
+            res.json(bugs)
+        })
+    }
+);
 
 // router.get('/show', (req, res) =>{
 //     res.sendFile('bugs.html', {root: './public'});
@@ -66,6 +77,36 @@ router.get('/add', (req, res) => {
 router.get('/form', (req, res) => {
     res.sendFile('report.html', {root: './public'});
 
+});
+
+router.get('/chart', (req, res) => {
+    console.log("showing chart...");
+
+    Bug.find({}, (err, bugs)=>{
+        // console.log(bugs);
+        // none, low, medium, high
+        labels = ['none', 'low', 'medium', 'high'];
+        data = [0,0,0,0];
+        bugs.forEach((bug)=>{
+            var index=0;
+            // console.log(bug.severity);
+            switch(bug.severity){
+                case 'none': 
+                    index=0;break;
+                case 'low':
+                    index=1;break;
+                case 'medium':
+                    index=2;break;
+                case 'high':
+                    index=3; break;
+            }
+            data[index] +=1;
+        });
+        console.log(data);
+        res.sendFile('chart.html', {root: './public', data, labels});
+    });
+
+    
 });
 
 

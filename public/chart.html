@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chart</title>
+</head>
+<body>
+    
+    <!-- <script src="../middleware/chart.js"></script>
+    <canvas id="myChart" width="400" height="400"></canvas> -->
+
+    <p>Pie Chart</p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <!-- <p>Bar Chart</p> -->
+    <!-- <canvas id="bbarChart" width="200" height="200"></canvas> -->
+    
+
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+
+        let labels = ['none', 'low', 'medium', 'high'];
+        let data = [0,0,0,0];
+        $.get('/bugs/json', {}, (bugs)=>{
+                
+                bugs.forEach((bug)=>{
+                var index=0;
+                // console.log(bug.severity);
+                switch(bug.severity){
+                    case 'none': 
+                        index=0;break;
+                    case 'low':
+                        index=1;break;
+                    case 'medium':
+                        index=2;break;
+                    case 'high':
+                        index=3; break;
+                }
+                data[index] +=1;
+            });
+        });
+        var ctx = document.getElementById("myChart").getContext('2d') ;
+        // var ctx1 = document.getElementById("bbarChart").getContext('2d');   
+        var myChart = new Chart(ctx, {type: 'pie',data: {labels: labels, datasets: [{label: 'This week',backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#132412", "#534376", "#087567", "#451874", "#014875"],data:data,}]},options:{responsive: true,maintainAspectRatio: false,},});      
+
+        
+        // var bbarChart = new Chart(ctx1, {type: 'bar',data: {labels: labels, datasets: [{label: 'This week',backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#132412", "#534376", "#087567", "#451874", "#014875"],data:data,}]},});
+        
+        
+    </script> 
+</body>
+</html>
