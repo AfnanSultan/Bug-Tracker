@@ -2,6 +2,10 @@
 
 ### Authors: *Noah, Afnan, Patrick, Jack*
 
+Deployed on Heroku: 
+
+https://bug-tracker-swamp-hacker.herokuapp.com/
+
 Bug Tracker app built using MERN stack during SwampHacks 2020. Collaborating in a team of 4 to build this Full-Stack Web App.
 
 #### Primary Tech Stack:
