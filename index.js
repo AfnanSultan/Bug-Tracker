@@ -5,7 +5,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const mongoose = require('mongoose')
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 //require('dotenv').config()
 
 app.use(express.json())
