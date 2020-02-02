@@ -1,4 +1,5 @@
 // import express
+//ok
 const express = require('express')
 // app is the express server
 const app = express()
@@ -10,6 +11,10 @@ app.use(express.json())
 // serve public files to client
 app.use(express.static(path.join(__dirname, '/public')));
 app.set("view engine", "ejs");
+
+
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
 
 
 mongoose.Promise = global.Promise;

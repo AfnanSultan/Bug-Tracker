@@ -9,7 +9,19 @@ router.route('/').get((req, res) => {
     console.log('get /bugs');
     console.log(req.params);
     Bug.find()
-        .then(bugs => res.json(bugs))
+        .then(bugs => {
+            let items = []
+            bugs.forEach(function(obj) { 
+                //console.log(obj);
+                items.push(obj) 
+            });
+
+            console.log(items)
+            res.render('../views/bugs-list', {
+                bugs: items //JSON.parse(bugs)
+            })
+
+        })
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
