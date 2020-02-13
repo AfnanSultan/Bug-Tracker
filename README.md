@@ -1,6 +1,6 @@
 # Bug Tracker
 
-### Authors: *Noah, Afnan, Patrick, Jack*
+### Authors: *Noah, Afnan, Patrick, Jiajing*
 
 Deployed on Heroku: 
 
